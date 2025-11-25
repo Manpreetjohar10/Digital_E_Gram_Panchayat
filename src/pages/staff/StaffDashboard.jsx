@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { db } from '../../firebase'
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore'
 
@@ -18,33 +18,26 @@ export default function StaffDashboard() {
   }
 
   return (
-    <div className='p-10'>
+    <div className="page text-white space-y-6">
 
-      <h1 className='text-3xl font-bold mb-6'>Staff Dashboard</h1>
+      <h1 className="text-4xl font-bold text-center">Staff Dashboard</h1>
 
-      {apps.length === 0 && (
-        <p>No applications available.</p>
-      )}
+      <div className="grid md:grid-cols-2 gap-6">
+        {apps.map(app => (
+          <div key={app.id} className="glass p-6">
+            <h2 className="text-xl font-bold">{app.name}</h2>
+            <p>Email: {app.email}</p>
+            <p>Service: {app.service}</p>
+            <p>Status: {app.status}</p>
 
-      <div className='space-y-4'>
-        {apps.map(a => (
-          <div key={a.id} className='glass p-6'>
-            <h2 className='text-xl font-semibold'>{a.name}</h2>
-            <p>Email: {a.email}</p>
-            <p>Service: {a.service}</p>
-            <p>Details: {a.details}</p>
-
-            <p className='mt-2'><strong>Status:</strong> {a.status}</p>
-
-            <div className='flex gap-2 mt-4'>
-              <button onClick={()=>updateStatus(a.id, 'processing')} className='btn-outline flex-1'>
-                Mark Processing
+            <div className="flex gap-3 mt-4">
+              <button onClick={()=>updateStatus(app.id,'processing')} className="btn-outline flex-1">
+                Processing
               </button>
-              <button onClick={()=>updateStatus(a.id, 'completed')} className='btn-primary flex-1'>
-                Mark Completed
+              <button onClick={()=>updateStatus(app.id,'completed')} className="btn-primary flex-1">
+                Completed
               </button>
             </div>
-
           </div>
         ))}
       </div>

@@ -2,20 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Glassmorphism styles */
+/* Global background */
+body {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Glass UI */
 .glass {
-  @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-lg rounded-xl;
+  @apply bg-white/20 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl;
 }
 
 /* Buttons */
 .btn-primary {
-  @apply px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition;
-}
-.btn-outline {
-  @apply px-4 py-2 rounded-lg border border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition;
+  @apply px-5 py-2 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition;
 }
 
-/* Page Container */
+.btn-outline {
+  @apply px-5 py-2 rounded-lg border border-white text-white hover:bg-white/10 transition;
+}
+
+/* Page container */
 .page {
-  @apply max-w-7xl mx-auto px-6 py-8;
+  @apply max-w-7xl mx-auto p-6;
 }

@@ -1,46 +1,35 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-
 export default function Home() {
-  const { t } = useTranslation()
+  const services = [
+    { id: 'birth', title: 'Birth Certificate', desc: 'Apply online for birth certificates' },
+    { id: 'death', title: 'Death Certificate', desc: 'Register deaths digitally' },
+    { id: 'ration', title: 'Ration Card', desc: 'Apply and track ration services' },
+    { id: 'pension', title: 'Pension Scheme', desc: 'Old age pension services' }
+  ]
 
   return (
-    <div className='space-y-10'>
+    <div className="page space-y-10">
 
-      {/* Hero Section */}
-      <div className='glass p-10 text-center bg-gradient-to-br from-blue-100 to-blue-50 shadow-lg'>
-        <h1 className='text-4xl font-bold text-blue-900'>
-          {t('welcome')}
-        </h1>
-        <p className='mt-4 text-gray-700 max-w-2xl mx-auto'>
-          Apply for government services quickly and securely.
-        </p>
-        <div className='mt-6'>
-          <Link to='/services' className='btn-primary text-lg px-6 py-3'>Explore Services</Link>
+      <div className="text-white text-center">
+        <h1 className="text-5xl font-extrabold mb-3">Digital E-Gram Panchayat</h1>
+        <p className="text-xl opacity-90">Modern Government Services — Online & Transparent</p>
+
+        <div className="mt-6 flex justify-center gap-4">
+          <a href="/login" className="btn-primary">Login</a>
+          <a href="/register" className="btn-outline">Register</a>
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-
-        <div className='glass p-6'>
-          <h3 className='font-bold text-xl'>Online Applications</h3>
-          <p className='mt-2 text-gray-700'>Submit forms from anywhere.</p>
-        </div>
-
-        <div className='glass p-6'>
-          <h3 className='font-bold text-xl'>Track Status</h3>
-          <p className='mt-2 text-gray-700'>Check your application progress.</p>
-        </div>
-
-        <div className='glass p-6'>
-          <h3 className='font-bold text-xl'>Secure Data</h3>
-          <p className='mt-2 text-gray-700'>Your information stays protected.</p>
-        </div>
-
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map(s => (
+          <div key={s.id} className="glass p-6 text-white hover:scale-105 transition">
+            <h2 className="text-2xl font-bold mb-2">{s.title}</h2>
+            <p className="opacity-90 mb-4">{s.desc}</p>
+            <a href="/services" className="btn-outline w-full block text-center">
+              View Service
+            </a>
+          </div>
+        ))}
       </div>
-
     </div>
   )
 }
