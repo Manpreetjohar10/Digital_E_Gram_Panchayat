@@ -1,11 +1,15 @@
+/** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html','./src/**/*.{js,jsx}'],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx}"
+  ],
   theme: {
     extend: {
       colors: {
-        primary: '#1A73E8',
-        gradientStart: '#1e3a8a',
-        gradientEnd: '#3b82f6'
+        primary: "#1A73E8",
+        gradientStart: "#1e3a8a",
+        gradientEnd: "#3b82f6",
       }
     }
   },

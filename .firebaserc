@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "digital-e-gram-5db28"
-  }
+    "default": "digital-e-gram-5db28",
+    ".": "digital-e-gram-5db28"
+  },
+  "targets": {},
+  "etags": {}
 }
